@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Management System - Trainee</title>
+    <link rel="stylesheet" href="styleTrainee.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <!-- Configure Tailwind for custom font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+     <header>
+        <div class="navigation-bar">
+             <a href="home.html" class="back-button">← Back to Home</a>  
+        </div>
+        <h1>Gym Management System - Trainee</h1>
+    </header>
+     <main>
+        <section>
+            <h2>Add/Edite Trainee</h2>
+            <form id="trainee-form">
+                <div class="form-row">
+
+                     <div class="form-group">
+                        <label for="traineeName">Name: *</label>
+                        <input type="text" id="traineeName" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="traineeEmail">Email: *</label>
+                        <input type="text" id="traineeEmail" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="traineejoinDate">Join Date: *</label>
+                        <input type="date" id="traineejoinDate"  required placeholder="2025-12-31">
+                    </div>
+                     <!-- <div class="form-group">
+                       
+                    </div> -->
+                        <div class="filter-group">
+                             <label for="traineeActivePlanId">Active Plan Id: *</label>
+                            <select id="traineeActivePlanId" required class="form-control" >
+                                <option value="" disabled selected>Load Workout plans....</option>
+                            </select>
+                            <button type="button" id="refresh-trainee-active-filter-btn" class="btn-refresh" title=" Refresh Workout Plans">
+                                🔄
+                            </button>
+                            <p id="status-message-trainee-active-filter" class="text-sm text-center font-medium text-indigo-600 h-5"></p>
+                        </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="traineeSubmit" class="btn-primary">Add Trainee</button>
+                    <button type="button" id="cancel-edit-btn-trainee" class="btn-secondary" style="display:none;">Cancel edite</button>
+                </div>
+                    <div class="form-group">
+                        <input type="hidden" id="trainee-id" >
+                    </div>
+            </form>
+               
+        </section>
+         <div>
+            <label for="get-trainee-joined-after-date-btn">get trainees joined aftre:</label>
+            <input type="date" id="traineejoinAfterDate"  required placeholder="2025-12-31">
+            <button type="button" id="get-trainee-joined-after-date-btn" class="btn-primary">filter</button>
+        </div>
+       <div class="form-group">
+        <div class="form-row">  
+            <label for="year-select">Select Join Year:</label>
+            <select id="join-year" class="form-group"name="join-year" required>
+                <option value="" disabled selected>Select Year</option>
+            </select>
+            <button type="button" id="get-trainee-by-year-btn" class="btn-primary">filter</button>
+
+        </div>
+        </div>
+        
+        <section>
+                <h2>Trainees</h2>
+            <div class="table-container">
+                <table id="trainee-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Join Date</th>
+                            <th>Workout Plan</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainee-table-body">
+                         <tr>
+                            <td colspan="6" style="text-align:center;">Loading data from server</td>
+                        </tr>                    
+                    </tbody>
+                </table>
+            </div>
+             <div id="stats">
+                <p>All trainees: <strong id="total-trainee-count">0</strong></p>
+            </div>
+        </section>
+    </main>
+        <footer>
+        <p>Built by Farouk Shtewee © 2025 | Gym Management System</p>
+    </footer>
+        <script src="appTrainee.js"></script>
+</body>
+</html>

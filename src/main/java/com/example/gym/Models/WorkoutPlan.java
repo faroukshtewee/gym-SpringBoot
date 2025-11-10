@@ -2,8 +2,6 @@ package com.example.gym.Models;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "WorkoutPlan")
 public class WorkoutPlan {
@@ -14,7 +12,7 @@ public class WorkoutPlan {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private String describtion;
+    private String description;
     @Column(nullable = false)
     private int difficulty;
 
@@ -37,12 +35,12 @@ public class WorkoutPlan {
         this.name = name;
     }
 
-    public String getDescribtion() {
-        return describtion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribtion(String describtion) {
-        this.describtion = describtion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDifficulty() {
@@ -53,10 +51,10 @@ public class WorkoutPlan {
         this.difficulty = difficulty;
     }
 
-    public WorkoutPlan(Long id, String name, String describtion, int difficulty) {
+    public WorkoutPlan(Long id, String name, String description, int difficulty) {
         this.id = id;
         this.name = name;
-        this.describtion = describtion;
+        this.description = description;
         this.difficulty = difficulty;
     }
 

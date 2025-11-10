@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/trainees")
+@RequestMapping("/api/trainees")
 @CrossOrigin
 public class TraineeController {
     @Autowired
@@ -36,11 +36,11 @@ public class TraineeController {
         traineeService.deleteTraineePlan(traineeId);
     }
     @GetMapping("/joined-after/{date}")
-    public  List<Trainee> getTraineePlansAfterDate(@PathVariable LocalDate date) {
-        return traineeService.getTraineePlansAfterDate(date);
+    public  List<Trainee> getTraineeJoinedAfterDate(@PathVariable LocalDate date) {
+        return traineeService.getTraineeJoinedAfterDate(date);
     }
 @GetMapping("/grouped-by-year")
-public Map<String,Integer> getTraineePlansCountByYear(){
-        return traineeService.getTraineePlansCountByYear();
+public Map<String,List<Trainee>> getTraineesByYear(){
+        return traineeService.getTraineesByYear();
 }
 }

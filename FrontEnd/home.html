@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Management Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="homeStyle.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-4xl font-extrabold tracking-tight">Gym Manager Dashboard</h1>
+        <p class="mt-2 text-xl font-light">Select a management area to continue.</p>
+    </header>
+
+    <main class="main-content">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Card 1: Workout Plans -->
+            <a href="workout.html" class="nav-card">
+                <span class="nav-card-icon">💪</span>
+                <h2 class="text-2xl font-bold mb-2">Workout Plans</h2>
+                <p class="text-gray-600">Create, edit, and manage all available fitness programs and workout schedules for members.</p>
+                <button class="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition">Go to Workouts</button>
+            </a>
+            
+            <!-- Card 2: Trainee Management -->
+            <a href="trainee.html" class="nav-card">
+                <span class="nav-card-icon">👥</span>
+                <h2 class="text-2xl font-bold mb-2">Trainee Management</h2>
+                <p class="text-gray-600">Manage member profiles, track progress, assign plans, and view attendance records.</p>
+                <button class="mt-4 px-6 py-2 bg-green-500 text-white font-semibold rounded-full hover:bg-green-600 transition">Go to Trainees</button>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="text-center p-4 text-gray-500 text-sm">
+        Gym Management System © 2025
+    </footer>
+</body>
+</html>

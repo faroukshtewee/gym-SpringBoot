@@ -48,14 +48,14 @@ public class TraineeService {
             throw  new RuntimeException("Trainee not found");
         }
     }
-    public  List<Trainee> getTraineePlansAfterDate(LocalDate date) {
+    public  List<Trainee> getTraineeJoinedAfterDate(LocalDate date) {
         List<Trainee> result = getTraineePlans();
         List<Trainee> plansAfterDate =result.stream().filter(trainee ->trainee.getJoinDate() != null && trainee.getJoinDate().isAfter(date)).collect(Collectors.toList());
         return plansAfterDate;
     }
-    public Map<String,Integer> getTraineePlansCountByYear(){
+    public Map<String,List<Trainee>> getTraineesByYear(){
         List<Trainee> result = getTraineePlans();
-        Map<String,Integer> map = result.stream().collect(Collectors.groupingBy(trainee ->String.valueOf(trainee.getJoinDate().getYear()),Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+        Map<String,List<Trainee>> map = result.stream().collect(Collectors.groupingBy(trainee ->String.valueOf(trainee.getJoinDate().getYear())));
         return map;
     }
 }
